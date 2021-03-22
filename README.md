@@ -2,7 +2,7 @@
 
 
 ## Project overview
-   A Colorado board of elections employee analysis of a recent congressional election.
+   * A Colorado board of elections employee analysis of a recent congressional election.
 2) total number of votes
 3) list of candidates with votes
 4) total votes for each candidate
