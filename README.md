@@ -25,5 +25,8 @@ The analysis of election shows that:
 * Diana DeGatte
 
 
-## Challenge Overview
+
 ## Challenge Summary
+The winner of election is Dianna DeGette with 73.8%, and also Denver had the biggest participation with 82.8% in the election.
+The second position belongs to Charles Casper Stockham with 23%, and Jefferson with 10.5% participation.
+The last candidate is Raymon Anthony Doane with 3.1%, and Arapahoe with 6.7% of participants.
