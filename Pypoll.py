@@ -18,7 +18,7 @@ candidate_options = []
 
 candidate_votes = {}
 
-winning_candidate = " "
+winning_candidate = ""
 winning_count = 0
 winning_percentage = 0
 
@@ -40,31 +40,44 @@ with open(file_to_load) as election_data :
             candidate_votes [candidate_name] = 0
 
         candidate_votes [candidate_name]+= 1
-        for candidate_name in candidate_votes:
-            votes = candidate_votes[candidate_name]
-            vote_percentage = float(votes) / float(total_votes) * 100
 
-            if (votes > winning_count) and (vote_percentage > winning_percentage):
-                winning_count = votes
-                winning_percentage = vote_percentage
-                winning_candidate = candidate_name
+with open(file_to_save, "w") as txt_file:
+    Election_Results = (
+    f"\nElection Results\n"
+    f"----------------------\n"
+    f"Total votes: {total_votes:,}\n"
+    f"----------------------\n"
+    )
+    print(Election_Results, end="")
+    txt_file.write(Election_Results)
 
-        winning_candidate_summery = (
+    for candidate_name in candidate_votes:
+        votes = candidate_votes[candidate_name]
+        vote_percentage = float(votes) / float(total_votes) * 100
+        candidate_results = (f"{candidate_name}: {vote_percentage: .1f}% ({votes: ,})\n")
+        print(candidate_results)
+        txt_file.write(candidate_results)
+        if (votes > winning_count) and (vote_percentage > winning_percentage):
+            winning_count = votes
+            winning_percentage = vote_percentage
+            winning_candidate = candidate_name
+
+    winning_candidate_summery = (
         f"----------------\n"
         f"winner: {winning_candidate}\n"
         f"winning vote count: {winning_count: ,}\n"
         f"winning percentage: {winning_percentage: .1f}%\n"
         f"----------------\n"
-        )
-#print the total votes
-print(winning_candidate_summery)
-        
-#with open(file_to_save, "w") as txt_file :
-    #txt_file.write("Counties in the Election")
-    #txt_file.write("----------------------")
-    #txt_file.write("Arapahoe\nDenver\nJefferson") 
-          
-# Close the file.
-election_data.close()
+            )
+    #print the total votes
+    print(winning_candidate_summery)
+    txt_file.write(winning_candidate_summery)       
+    #with open(file_to_save, "w") as txt_file :
+        #txt_file.write("Counties in the Election")
+        #txt_file.write("----------------------")
+        #txt_file.write("Arapahoe\nDenver\nJefferson") 
+            
+    # Close the file.
+    election_data.close()
 
 
